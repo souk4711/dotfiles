@@ -1,0 +1,13 @@
+#
+# ~/.xprofile
+#
+
+
+# Register the input method modules and support xim programs
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+
+# Load a resource file, and merge with the current settings
+xrdb -merge ~/.Xresources

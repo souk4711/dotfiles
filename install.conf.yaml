@@ -1,0 +1,30 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.bash_profile: apps/bash/bash_profile
+    ~/.bashrc: apps/bash/bashrc
+
+- link:
+    ~/.gitconfig: apps/git/gitconfig
+
+- link:
+    ~/.inputrc: apps/readline/inputrc
+
+- link:
+    ~/.bundle/config: apps/ruby/bundle/config
+    ~/.gemrc: apps/ruby/gemrc
+
+- link:
+      ~/.vimrc: apps/vim/vimrc
+      ~/.vim/autoload/plug.vim: apps/vim/autoload/plug.vim
+- shell:
+      - [vim -c 'PlugInstall' +qall, Installing vim plugins]
+
+- link:
+      ~/.xprofile: apps/x11/xprofile
+      ~/.Xresources: apps/x11/Xresources

@@ -1,0 +1,28 @@
+#
+# ~/.inputrc
+#
+
+
+# Be 8-bit clean
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
+
+# Faster completion
+set completion-ignore-case on
+set show-all-if-unmodified on
+
+
+# Use vi-like keybindings
+set editing-mode vi
+$if mode=vi
+  set keymap vi-command
+  "\e[a": history-search-backward
+  "\e[b": history-search-forward
+
+  set keymap vi-insert
+  "\e[a": history-search-backward
+  "\e[b": history-search-forward
+$endif

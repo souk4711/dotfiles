@@ -1,0 +1,14 @@
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+[user]
+	name = John Doe
+	email = johndoe@example.com
+[push]
+	default = upstream
+[init]
+	defaultBranch = main
+[core]
+	pager = less -x1,3

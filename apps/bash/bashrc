@@ -1,0 +1,114 @@
+#
+# ~/.bashrc
+#
+
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+
+# https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# List of colors for prompt and Bash
+txtblk='\e[0;30m' # Black - Regular
+txtred='\e[0;31m' # Red
+txtgrn='\e[0;32m' # Green
+txtylw='\e[0;33m' # Yellow
+txtblu='\e[0;34m' # Blue
+txtpur='\e[0;35m' # Purple
+txtcyn='\e[0;36m' # Cyan
+txtwht='\e[0;37m' # White
+bldblk='\e[1;30m' # Black - Bold
+bldred='\e[1;31m' # Red
+bldgrn='\e[1;32m' # Green
+bldylw='\e[1;33m' # Yellow
+bldblu='\e[1;34m' # Blue
+bldpur='\e[1;35m' # Purple
+bldcyn='\e[1;36m' # Cyan
+bldwht='\e[1;37m' # White
+unkblk='\e[4;30m' # Black - Underline
+undred='\e[4;31m' # Red
+undgrn='\e[4;32m' # Green
+undylw='\e[4;33m' # Yellow
+undblu='\e[4;34m' # Blue
+undpur='\e[4;35m' # Purple
+undcyn='\e[4;36m' # Cyan
+undwht='\e[4;37m' # White
+bakblk='\e[40m'   # Black - Background
+bakred='\e[41m'   # Red
+bakgrn='\e[42m'   # Green
+bakylw='\e[43m'   # Yellow
+bakblu='\e[44m'   # Blue
+bakpur='\e[45m'   # Purple
+bakcyn='\e[46m'   # Cyan
+bakwht='\e[47m'   # White
+txtrst='\e[0m'    # Text Reset
+
+
+# Disable XON/XOFF flow control which use Ctrl+S/Ctrl+Q
+stty -ixon
+
+
+# Shell and environment variables
+shopt -s histverify
+export EDITOR='vim'
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+
+
+# Alias -- color & human-readable
+alias df='df -hT'
+alias du='du -h'
+alias free='free -h'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto -hF'
+
+# Alias -- new command
+alias ..='cd ..'
+alias du1='du --max-depth=1'
+alias hist='history'
+alias histgrep='history | grep $1'
+alias la='ls -A --group-directories-first'
+alias ll='ls -l --group-directories-first'
+alias lla='ls -lA --group-directories-first'
+alias vi='vim'
+
+# Alias -- safety features
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -I'
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+
+# Command-line utilities -- autojump: a faster way to navigate your filesystem
+[ -r /etc/profile.d/autojump.bash ] && . /etc/profile.d/autojump.bash
+
+# Command-line utilities -- pkgfile: a tool for searching files from packages
+[ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
+
+# Command-line utilities -- nodenv: Groom your app’s Node environment with nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+[ -s "$HOME/.nodenv/bin/nodenv" ] && eval "$(nodenv init -)"
+
+# Command-line utilities -- rbenv: Groom your app’s Ruby environment
+export PATH="$HOME/.rbenv/bin:$PATH"
+[ -s "$HOME/.rbenv/bin/rbenv" ] && eval "$(rbenv init -)"
+
+# Command-line utilities -- pyenv: Simple Python version management
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+[ -s "$HOME/.pyenv/bin/pyenv" ] && eval "$(pyenv init -)"
+
+# Command-line utilities -- goenv: Go Version Management
+export GOENV_GOPATH_PREFIX="$HOME/.go"
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+[ -s "$HOME/.goenv/bin/goenv" ] && eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+# Command-line utilities -- Android Development Environment
+export ANDROID_HOME="$HOME/.android-sdk"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
