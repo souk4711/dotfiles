@@ -1,10 +1,44 @@
+# Apply to all commands that come after setting the defaults
 - defaults:
     link:
-        create: true
-        relink: true
+        create: true # Create parent directories to the link as needed
+        relink: true # Removes the old target if it's a symlink
 
+
+# Remove dead symbolic links
 - clean: ['~']
 
+
+# Plugin: git
+- git:
+    ~/.nodenv:
+        url: https://github.com/nodenv/nodenv.git
+    ~/.nodenv/plugins/node-build:
+        url: https://github.com/nodenv/node-build.git
+    ~/.rbenv:
+        url: https://github.com/rbenv/rbenv.git
+    ~/.rbenv/plugins/ruby-build:
+        url: https://github.com/rbenv/ruby-build.git
+    ~/.pyenv:
+        url: https://github.com/pyenv/pyenv.git
+    ~/.goenv:
+        url: https://github.com/syndbg/goenv.git
+- shell:
+    - [cd ~/.nodenv && src/configure && make -C src]
+    - [cd ~/.rbenv  && src/configure && make -C src]
+    - [cd ~/.pyenv  && src/configure && make -C src]
+
+
+# Plugin: yay
+- yay:
+    - autojump
+    - pkgfile
+    - vim
+- shell:
+    - [sudo pkgfile -u]
+
+
+# Apps
 - link:
     ~/.bash_profile: apps/bash/bash_profile
     ~/.bashrc: apps/bash/bashrc
@@ -20,11 +54,11 @@
     ~/.gemrc: apps/ruby/gemrc
 
 - link:
-      ~/.vimrc: apps/vim/vimrc
-      ~/.vim/autoload/plug.vim: apps/vim/autoload/plug.vim
+    ~/.vimrc: apps/vim/vimrc
+    ~/.vim/autoload/plug.vim: apps/vim/autoload/plug.vim
 - shell:
-      - [vim -c 'PlugInstall' +qall, Installing vim plugins]
+    - [vim -c 'PlugInstall' +qall, Installing vim plugins]
 
 - link:
-      ~/.xprofile: apps/x11/xprofile
-      ~/.Xresources: apps/x11/Xresources
+    ~/.xprofile: apps/x11/xprofile
+    ~/.Xresources: apps/x11/Xresources
