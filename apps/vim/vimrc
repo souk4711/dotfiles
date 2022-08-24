@@ -11,6 +11,7 @@ set nocompatible
 " Download plug.vim and put it in the "autoload" directory.
 filetype off
 call plug#begin()
+Plug 'editorconfig/editorconfig-vim'        " Desc: EditorConfig plugin for Vim.
 Plug 'jlanzarotta/bufexplorer'              " Desc: BufExplorer Plugin for Vim.
 Plug 'prabirshrestha/asyncomplete.vim'      " Desc: Async autocompletion for Vim 8 and Neovim with |timers|.
 Plug 'prabirshrestha/asyncomplete-lsp.vim'  " Desc: Provide Language Server Protocol autocompletion source for asyncomplete.vim and vim-lsp.
