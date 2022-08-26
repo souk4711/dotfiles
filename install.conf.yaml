@@ -54,6 +54,9 @@
     ~/.gemrc: apps/ruby/gemrc
 
 - link:
+    ~/.cargo/config: apps/rust/cargo/config
+
+- link:
     ~/.vimrc: apps/vim/vimrc
     ~/.vim/autoload/plug.vim: apps/vim/autoload/plug.vim
 - shell:
