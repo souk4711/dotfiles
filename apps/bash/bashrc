@@ -114,5 +114,8 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Command-line utilities -- Android Development Environment
 export ANDROID_HOME="$HOME/.android-sdk"
-export PATH="$PATH:$ANDROID_HOME/tools"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$ANDROID_HOME/tools:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+
+# Command-line utilities -- Rust Development Environment
+export PATH="$HOME/.cargo/bin:$PATH"
