@@ -11,10 +11,8 @@
 
 # Plugin: git
 - git:
-    ~/.nodenv:
-        url: https://github.com/nodenv/nodenv.git
-    ~/.nodenv/plugins/node-build:
-        url: https://github.com/nodenv/node-build.git
+    ~/.nvm:
+        url: https://github.com/nvm-sh/nvm.git
     ~/.rbenv:
         url: https://github.com/rbenv/rbenv.git
     ~/.rbenv/plugins/ruby-build:
@@ -24,7 +22,6 @@
     ~/.goenv:
         url: https://github.com/syndbg/goenv.git
 - shell:
-    - [cd ~/.nodenv && src/configure && make -C src]
     - [cd ~/.rbenv  && src/configure && make -C src]
     - [cd ~/.pyenv  && src/configure && make -C src]
 

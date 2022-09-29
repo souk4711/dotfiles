@@ -91,9 +91,10 @@ alias chgrp='chgrp --preserve-root'
 # Command-line utilities -- pkgfile: a tool for searching files from packages
 [ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
 
-# Command-line utilities -- nodenv: Groom your app’s Node environment with nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-[ -s "$HOME/.nodenv/bin/nodenv" ] && eval "$(nodenv init -)"
+# Command-line utilities -- nvm: Node Version Manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
 # Command-line utilities -- rbenv: Groom your app’s Ruby environment
 export PATH="$HOME/.rbenv/bin:$PATH"
