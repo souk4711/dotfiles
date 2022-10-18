@@ -2,19 +2,15 @@
 
 set -e
 
-CONFIG="install.conf.yaml"
-DOTBOT_DIR="dotbot"
+git -C "dotbot" submodule sync --quiet --recursive
+git submodule update --init --recursive "dotbot"
 
-DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-DOTBOT_PLUGIN_GIT="dotbot-git/git.py"
-DOTBOT_PLUGIN_YAY="dotbot-yay/yay.py"
-
-cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
-
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}" \
-  -p "${DOTBOT_PLUGIN_GIT}" \
-  -p "${DOTBOT_PLUGIN_YAY}"
+case "$1" in
+  all)
+    dotbot/bin/dotbot -d . -c configs/git-repositories.conf.yaml -p dotbot-git/git.py
+    dotbot/bin/dotbot -d . -c configs/yay-packages.conf.yaml -p dotbot-yay/yay.py
+    dotbot/bin/dotbot -d . -c configs/links.conf.yaml
+    ;;
+  *)
+    dotbot/bin/dotbot -d . -c "$1" -p dotbot-git/git.py -p dotbot-yay/yay.py
+esac

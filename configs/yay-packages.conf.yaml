@@ -1,0 +1,6 @@
+- yay:
+    - autojump
+    - pkgfile
+    - gvim
+- shell:
+    - [sudo pkgfile -u]

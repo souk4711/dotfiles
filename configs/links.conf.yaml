@@ -4,36 +4,8 @@
         create: true # Create parent directories to the link as needed
         relink: true # Removes the old target if it's a symlink
 
-
 # Remove dead symbolic links
 - clean: ['~']
-
-
-# Plugin: git
-- git:
-    ~/.nvm:
-        url: https://github.com/nvm-sh/nvm.git
-    ~/.rbenv:
-        url: https://github.com/rbenv/rbenv.git
-    ~/.rbenv/plugins/ruby-build:
-        url: https://github.com/rbenv/ruby-build.git
-    ~/.pyenv:
-        url: https://github.com/pyenv/pyenv.git
-    ~/.goenv:
-        url: https://github.com/syndbg/goenv.git
-- shell:
-    - [cd ~/.rbenv  && src/configure && make -C src]
-    - [cd ~/.pyenv  && src/configure && make -C src]
-
-
-# Plugin: yay
-- yay:
-    - autojump
-    - pkgfile
-    - vim
-- shell:
-    - [sudo pkgfile -u]
-
 
 # Apps
 - link:
