@@ -1,3 +1,9 @@
+# vi: ft=toml
+#
+# ~/.cargo/config
+#
+
+
 [source.crates-io]
 replace-with = 'ustc'
 
