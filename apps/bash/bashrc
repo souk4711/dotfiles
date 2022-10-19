@@ -92,7 +92,7 @@ alias chgrp='chgrp --preserve-root'
 [ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
 
 # Command-line utilities -- ssh-agent: keeps track of user's identity keys and their passphrases
-eval "$(ssh-agent -s)"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Command-line utilities -- nvm: Node Version Manager
 export NVM_DIR="$HOME/.nvm"

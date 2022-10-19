@@ -16,6 +16,9 @@
     ~/.gitconfig: apps/git/gitconfig
 
 - link:
+    ~/.ssh/config: apps/openssh/config
+
+- link:
     ~/.inputrc: apps/readline/inputrc
 
 - link:
@@ -24,6 +27,12 @@
 
 - link:
     ~/.cargo/config: apps/rust/cargo/config
+
+- link:
+    ~/.config/systemd/user/ssh-agent.service: apps/systemd/ssh-agent.service
+- shell:
+    - systemctl --user daemon-reload
+    - systemctl --user enable ssh-agent && systemctl --user start ssh-agent
 
 - link:
     ~/.vimrc: apps/vim/vimrc
