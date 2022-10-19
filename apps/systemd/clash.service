@@ -1,0 +1,16 @@
+#
+# ~/.config/systemd/user/clash.service
+#
+
+
+[Unit]
+Description=Clash daemon, A rule-based proxy in Go.
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/clash -d %h/.local/share/clash
+
+[Install]
+WantedBy=default.target

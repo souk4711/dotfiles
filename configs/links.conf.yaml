@@ -29,9 +29,11 @@
     ~/.cargo/config: apps/rust/cargo/config
 
 - link:
+    ~/.config/systemd/user/clash.service: apps/systemd/clash.service
     ~/.config/systemd/user/ssh-agent.service: apps/systemd/ssh-agent.service
 - shell:
     - systemctl --user daemon-reload
+    - systemctl --user enable clash && systemctl --user start clash
     - systemctl --user enable ssh-agent && systemctl --user start ssh-agent
 
 - link:
